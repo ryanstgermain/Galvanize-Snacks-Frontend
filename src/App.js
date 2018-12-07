@@ -19,21 +19,56 @@ class App extends Component {
           "reviews": "Yay for Pork!"
         }],
         showModal: true,
+        first_name: '',
+        last_name: '',
+        email: '',
+        hashed_password: '',
       }
     } 
 
+  async componentDidMount() {
+    fetch('http://localhost:3000/api/snacks')
+    .then(response => response.json())
+    .then(snacks => this.setState({ snacks: snacks })) 
+  }
+    
   hideModal = () => {
     this.setState({ showModal: false})
+  }
+
+  handleChange = (event) => {
+    const { value, name } = event.target
+    this.setState({
+      [name]: value
+    })
+  } 
+
+  hideModal = () => {
+    this.setState({ showModal: false})
+  }
+
+  specificSnack = (event) => {
+    let indSnack = this.state.snacks.filter(snack => {
+      return snack.id == event.target.id
+    })
+    console.log(event.target.id)
+    this.setState({
+      indSnack: indSnack
+    })
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <div className="row">
-          <SnackList />
+        <Modal hideModal= {this.hideModal} showModal= {this.state.showModal}/>
+        <div className="row-main">
+        <div className="snack-list">
+            <ul className="list-group">
+            <SnackList specificSnack= {this.specificSnack} snacks={this.state.snacks}/>
+            </ul>
+        </div>
           <Card indSnack= {this.state.indSnack}/>
-          <Modal hideModal= {this.hideModal} showModal= {this.state.showModal}/>
         </div>
         <Footer />
       </div>

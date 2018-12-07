@@ -1,10 +1,29 @@
+/* .header {
+  position: sticky;
+  z-index: 99999;
+  top: 0px;
+} */
+
 .snack-card {
-  width: 20em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 2em;
+  display: flex;
+  flex-direction: row;
+  background-color: #f2f4f5;
+  height: 25em;
+  position: sticky;
+  z-index: -1;
+  top: 100px;
+}
+.snack-card img {
+  padding: 2em;
 }
 
-.snack-card img {
+.snack-list {
+  margin: 2em;
+  margin-bottom: 5em;
+}
+.card-info, .reviews {
   padding: 2em;
 }
 
@@ -21,10 +40,6 @@
   display: none;
 }
 
-.modal-all{
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
 .modal-body {
   display: flex;
   flex-direction: column;
@@ -32,4 +47,13 @@
 
 .modal-body input {
   margin: .5em;
+}
+
+.hidden {
+  display: none;
+}
+
+.row-main {
+  display: flex;
+  flex-direction: row;
 }
