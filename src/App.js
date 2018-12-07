@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from './Components/Header'
 import SnackList from './Components/SnackList'
+import Footer from './Components/Footer'
 
 import './App.css';
 
@@ -12,6 +13,7 @@ class App extends Component {
         <div className="row">
           <SnackList />
         </div>
+        <Footer />
       </div>
     );
   }
