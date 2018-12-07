@@ -57,6 +57,29 @@ class App extends Component {
     })
   }
 
+  sendFormData = (event) => {
+    event.preventDefault()
+    let newUser = {
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        email: this.state.email,
+        hashed_password: this.state.hashed_password
+      }
+      fetch('http://localhost:3000', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        body: JSON.stringify(newUser)
+      })
+      .then(response => (response.json()))
+      .then(response => {
+        this.setState({
+          snacks: [...this.state.snacks, response[0]],
+        })
+      })
+    }
+
   render() {
     return (
       <div className="App">
