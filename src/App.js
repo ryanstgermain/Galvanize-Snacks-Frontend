@@ -19,12 +19,28 @@ class App extends Component {
           "reviews": "Yay for Pork!"
         }],
         showModal: true,
+        first_name: '',
+        last_name: '',
+        email: '',
+        hashed_password: '',
       }
     } 
 
   hideModal = () => {
     this.setState({ showModal: false})
   }
+
+  handleChange = (event) => {
+    const { value, name } = event.target
+    this.setState({
+      [name]: value
+    })
+  } 
+
+  hideModal = () => {
+    this.setState({ showModal: false})
+  }
+
 
   render() {
     return (
