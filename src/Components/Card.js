@@ -12,13 +12,10 @@ const Card = (props) => {
                   <p className="card-text">Price: ${snack.price}</p>
                   <p className="card-text">{`This snack is ${snack.is_perishable ? 'perishable' : 'not perishable'}`}</p>
                   <div class="input-group">
-                     <div class="input-group-prepend">
-                        <p>Reviews</p>
-                     </div>
+                     <p>Reviews</p>
                      <textarea  aria-label="With textarea">{snack.reviews}</textarea>
                   </div>
                </div>
-
             </div>
          </div>
       )
