@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Header from './Components/Header'
 import SnackList from './Components/SnackList'
 import Footer from './Components/Footer'
-
 import './App.css';
 import Card from './Components/Card.js'
 import Modal from './Components/Modal.js'
@@ -43,15 +42,10 @@ class App extends Component {
     })
   } 
 
-  hideModal = () => {
-    this.setState({ showModal: false})
-  }
-
   specificSnack = (event) => {
     let indSnack = this.state.snacks.filter(snack => {
       return snack.id == event.target.id
     })
-    console.log(event.target.id)
     this.setState({
       indSnack: indSnack
     })
@@ -84,7 +78,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Modal hideModal= {this.hideModal} showModal= {this.state.showModal}/>
+        <Modal 
+        hideModal= {this.hideModal} 
+        showModal= {this.state.showModal} 
+        handleChange= {this.handleChange}
+        />
         <div className="row-main">
         <div className="snack-list">
             <ul className="list-group">

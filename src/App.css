@@ -1,9 +1,3 @@
-/* .header {
-  position: sticky;
-  z-index: 99999;
-  top: 0px;
-} */
-
 .snack-card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: 2em;
@@ -15,6 +9,7 @@
   z-index: -1;
   top: 100px;
 }
+
 .snack-card img {
   padding: 2em;
 }
