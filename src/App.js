@@ -46,10 +46,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <Modal hideModal= {this.hideModal} showModal= {this.state.showModal}/>
         <div className="row">
           <SnackList />
           <Card indSnack= {this.state.indSnack}/>
-          <Modal hideModal= {this.hideModal} showModal= {this.state.showModal}/>
         </div>
         <Footer />
       </div>
