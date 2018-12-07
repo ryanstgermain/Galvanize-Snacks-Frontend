@@ -2,11 +2,11 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <nav class="navbar navbar-light bg-light">
+        <footer class="navbar navbar-light bg-light fixed-bottom">
             <span class="navbar-text">
             🔥 Made by the best group ever 🔥
             </span>
-        </nav>
+        </footer>
     )
 }
 

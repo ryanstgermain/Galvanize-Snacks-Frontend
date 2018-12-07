@@ -11,7 +11,22 @@ class App extends Component {
   constructor () {
     super () 
       this.state = {
-        snacks: [],
+        snacks: [{
+          "id": 1,
+          "name":"Pork - Caul Fat",
+          "description":"Mauris lacinia sapien quis libero.",
+          "is_perishable": true,
+          "price":"8.44","img":"https://images.unsplash.com/photo-1459663148042-6d8cb9340411?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=44153beb9e2d61c2970e93f8d72a862e",
+          "reviews": "Yay for Pork!"
+        },
+        {
+          "id": 2,
+          "name":"Cheetos",
+          "description":"Orange deliciousness",
+          "is_perishable": false,
+          "price":"8.44","img":"https://images.unsplash.com/photo-1459663148042-6d8cb9340411?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&s=44153beb9e2d61c2970e93f8d72a862e",
+          "reviews": "Yay for Cheetos!"
+        }],
         indSnack: [{
           "name":"Pork - Caul Fat",
           "description":"Mauris lacinia sapien quis libero.","is_perishable": true,
@@ -25,6 +40,12 @@ class App extends Component {
         hashed_password: '',
       }
     } 
+
+  // async componentDidMount() {
+  //   fetch('http://localhost:3000/')
+  //   .then(response => response.json())
+  //   .then(snacks => this.setState({ snacks })) 
+  // }
 
   hideModal = () => {
     this.setState({ showModal: false})
@@ -41,6 +62,15 @@ class App extends Component {
     this.setState({ showModal: false})
   }
 
+  specificSnack = (event) => {
+    let indSnack = this.state.snacks.filter(snack => {
+      return snack.id == event.target.id
+    })
+    console.log(event.target.id)
+    this.setState({
+      indSnack: indSnack
+    })
+  }
 
   render() {
     return (
@@ -48,7 +78,11 @@ class App extends Component {
         <Header />
         <Modal hideModal= {this.hideModal} showModal= {this.state.showModal}/>
         <div className="row">
-          <SnackList />
+        <div className="col-4 snack-list">
+            <ul className="list-group">
+            <SnackList specificSnack= {this.specificSnack} snacks={this.state.snacks}/>
+            </ul>
+        </div>
           <Card indSnack= {this.state.indSnack}/>
         </div>
         <Footer />

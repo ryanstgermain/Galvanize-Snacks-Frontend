@@ -3,7 +3,7 @@ import React from 'react';
 const Card = (props) => {
    return props.indSnack.map(snack => {
       return (
-         <div className= 'snack-card'>
+         <div className= 'snack-card col-8'>
             <div className="card row">
                <img className="card-img-top col-4" src="https://via.placeholder.com/300" alt="Card image cap"></img>
                {/* <div className="card-body"> */}
