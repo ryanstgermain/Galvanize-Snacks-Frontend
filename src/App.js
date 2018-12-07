@@ -1,4 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import Header from './Components/Header'
+import SnackList from './Components/SnackList'
+import Footer from './Components/Footer'
+
 import './App.css';
 import Card from './Components/Card.js'
 import Modal from './Components/Modal.js'
@@ -25,8 +29,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Card indSnack= {this.state.indSnack}/>
-      <Modal hideModal= {this.hideModal} showModal= {this.state.showModal}/>
+        <Header />
+        <div className="row">
+          <SnackList />
+          <Card indSnack= {this.state.indSnack}/>
+          <Modal hideModal= {this.hideModal} showModal= {this.state.showModal}/>
+        </div>
+        <Footer />
       </div>
     );
   }
